@@ -56,7 +56,7 @@
       transition: color 0.3s ease;
     }
     header nav a[href="#top"] {
-      display: none; /* Optional: if there's no section with id="top" */
+      display: none;
     }
     .hero {
       text-align: center;
@@ -127,7 +127,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -168,6 +168,11 @@
       .section-content img {
         max-width: 240px;
         max-height: 140px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .service-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   </style>
@@ -252,6 +257,12 @@ If the final decision is to acquire the company, execution during the first few 
           <p>When a company is burning cash, we offer fast turnarounds, assign a rescueability score and build tactical recovery plans.</p>
           <button onclick="showServiceDetail('rescue')">Read more</button>
         </div>
+        <div class="service-card">
+          <h3>Executive Leadership</h3>
+          <img src="img-leadership.png" alt="Executive Leadership">
+          <p>If current leadership can’t steer the ship, we step in with proven CEOs, Presidents, COOs or CFOs ready to lead transformation.</p>
+          <button onclick="showServiceDetail('leadership')">Read more</button>
+        </div>
       </div>
     </div>
     <div class="card" id="pre-detail" style="display:none;">
@@ -277,22 +288,10 @@ If the final decision is to acquire the company, execution during the first few 
       One of the most difficult questions facing investors in this situation is “is it wise to keep pouring money into this loser?” Using unique tools and proven assessment processes, combined with decades of operational experience, we quickly assess the realistic viability of the business and render a rescueability score of 0-10, usually within one to two weeks. As part of that exercise, a detailed rescue plan is developed including a budget, ROI, and exit strategy. Of greatest importance is a realistic assessment of how much more cash will be needed to turn the company around, and how quickly the company can stop burning cash. If the score is too low, then we evaluate various exit strategies, including bankruptcy, selling off assets, dissolution, and a variety of other creative exits meant to minimize downside exposure as much as possible.</p>
       <button onclick="backToOverview()">Back</button>
     </div>
-  </section>
-
-  <section id="leadership" class="section">
-    <div class="card">
+    <div class="card" id="leadership-detail" style="display:none;">
       <h2>Executive Leadership</h2>
-      <div class="section-content">
-        <img src="img-leadership.png" alt="Executive Leadership">
-        <div class="text-block">
-          <p class="short-text">If current leadership can’t steer the ship, we step in with proven CEOs, Presidents, COOs or CFOs ready to lead transformation.</p>
-          <p class="full-text">
-            In order to turn a company around. Its leaders must be willing and capable of making radical changes in many areas of the company and lead the troops in executing a new plan.  Oftentimes, certain top leaders of the company are either not willing or not capable of making the radical changes necessary to right the ship.  When that happens, they must be replaced by someone with the skills, experience, and vision to lead a company back to health.   We can provide a battle-proven CEO, President, COO, or CFO to lead your company back to health.
-          </p>
-          <button class="read-more">Read more</button>
-          <button class="back" style="display:none;">Back</button>
-        </div>
-      </div>
+      <p>In order to turn a company around, its leaders must be willing and capable of making radical changes in many areas of the company and lead the troops in executing a new plan. Oftentimes, certain top leaders of the company are either not willing or not capable of making the radical changes necessary to right the ship. When that happens, they must be replaced by someone with the skills, experience, and vision to lead a company back to health. We can provide a battle-proven CEO, President, COO, or CFO to lead your company back to health.</p>
+      <button onclick="backToOverview()">Back</button>
     </div>
   </section>
 
