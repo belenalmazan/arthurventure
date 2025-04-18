@@ -6,6 +6,9 @@
   <title>D-Arthur Ventures</title>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
@@ -35,7 +38,8 @@
       color: black;
     }
     .logo {
-      max-height: 48px;
+      max-height: 100px;
+      height: 100px;
       width: auto;
       object-fit: contain;
       display: block;
@@ -51,9 +55,12 @@
       font-size: 0.95rem;
       transition: color 0.3s ease;
     }
+    header nav a[href="#top"] {
+      display: none; /* Optional: if there's no section with id="top" */
+    }
     .hero {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 2rem 2rem;
       background-color: #EC3E43;
       color: white;
     }
@@ -68,7 +75,8 @@
       margin: 0 auto;
     }
     .section {
-      padding: 4rem 2rem;
+      scroll-margin-top: 120px;
+      padding: 1.5rem 2rem;
       max-width: 1100px;
       margin: 0 auto;
     }
@@ -144,9 +152,6 @@
       box-shadow: none;
       background: transparent;
     }
-    #services {
-      scroll-margin-top: 80px; /* Para evitar que el header tape el título */
-    }
     .footer {
       background-color: #000;
       color: white;
@@ -191,7 +196,7 @@
 
   <section id="hero" class="hero">
     <h1>Operational Intelligence. Real Risk Management.</h1>
-    <p>Helping investors manage risk and rescue troubled companies using forensic due diligence and predictive intelligence.</p>
+    <p>Helping investors manage risk and RESCUE TROUBLED COMPANIES using forensic due diligence and predictive intelligence.</p>
   </section>
 
   <section id="mission" class="section">
