@@ -11,222 +11,420 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #ffffff;
-      color: #000;
-    }
-    header {
-      background-color: white;
-      padding: 0.6rem 4rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    header.scrolled {
-      background: linear-gradient(to right, #ffffff 0%, #fdd1d2 30%, #EC3E43 80%, #EC3E43 100%);
-      transition: background 0.4s ease, color 0.4s ease;
-    }
-    header.scrolled nav a {
-      color: white;
-    }
-    header.scrolled nav a:hover {
-      color: black;
-    }
-    .logo {
-      max-height: 100px;
-      height: 100px;
-      width: auto;
-      object-fit: contain;
-      display: block;
-    }
-    nav.desktop-menu {
-      display: flex;
-      gap: 1.5rem;
-    }
-    nav.desktop-menu a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color 0.3s ease;
-    }
-    nav.desktop-menu a[href="#top"] {
-      display: none;
-    }
-    .hero {
+   html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #000;
+  }
+
+  /* Header */
+  header {
+    background-color: white;
+    padding: 0.6rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  header.scrolled {
+    background: linear-gradient(to right, #ffffff 0%, #fdd1d2 30%, #EC3E43 80%, #EC3E43 100%);
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+
+  header.scrolled nav a {
+    color: white;
+  }
+  header.scrolled nav a:hover {
+    color: black;
+  }
+
+  .logo {
+    max-height: 100px;
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  nav.desktop-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  nav.desktop-menu a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+  }
+
+  nav.desktop-menu a[href="#top"] {
+    display: none;
+  }
+
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 2rem 2rem;
+    background-color: #EC3E43;
+    color: white;
+  }
+
+  .hero h1 {
+    font-family: 'M PLUS 1', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Sections */
+  .section {
+    scroll-margin-top: 120px;
+    padding: 1.5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section h2 {
+    font-family: 'M PLUS 1', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #EC3E43;
+  }
+
+  /* Card */
+  .card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+  }
+
+  /* Layout: image + text */
+  .section-content {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    min-height: 240px;
+  }
+
+  .section-content.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .section-content img.image-card {
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+  }
+
+  .section-content.reverse img.image-card {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .section-content > div {
+    flex: 1;
+    padding: 1.2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Buttons */
+  .text-block .full-text {
+    display: none;
+  }
+
+  .text-block .button-row {
+    margin-top: 0.5rem;
+  }
+
+  .text-block .read-more {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #ec3e43;
+    color: white;
+    width: auto;
+    align-self: flex-start;
+  }
+
+  .text-block .read-more:hover {
+    background-color: #c43238;
+  }
+
+  .back {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: #ec3e43;
+    color: white;
+    width: auto;
+    align-self: flex-start;
+    margin-top: 1rem;
+  }
+
+  .back:hover {
+    background-color: #c43238;
+  }
+  /* Services Grid */
+  #services .card {
+    padding: 2rem;
+  }
+
+  #services h2 {
+    text-align: left;
+    font-family: 'M PLUS 1', sans-serif;
+    font-size: 2rem;
+    color: #EC3E43;
+    margin-bottom: 1.5rem;
+  }
+
+  #services .section-content {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    min-height: 280px;
+    padding: 0;
+  }
+
+  #services .section-content.reverse {
+    flex-direction: row-reverse;
+  }
+
+  #services .section-content img.image-card {
+    width: 100%;
+    max-width: 320px;
+    object-fit: cover;
+    height: auto;
+    border-radius: 0;
+  }
+
+  #services .section-content.reverse img.image-card {
+    border-radius: 0;
+  }
+
+  #services .card {
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  #services .section-content > div {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .service-card {
+    border: none;
+    padding: 0;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card img.image-card {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .service-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1rem 1rem 0.5rem;
+    text-align: left;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+    padding: 0 1rem 1.5rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .service-card button {
+    margin: 0 1rem 1rem;
+    background-color: #EC3E43;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .service-card button:hover {
+    background-color: #c43238;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-content,
+    .section-content.reverse {
+      flex-direction: column;
       text-align: center;
-      padding: 2rem 2rem;
-      background-color: #EC3E43;
-      color: white;
+      min-height: auto;
     }
-    .hero h1 {
-      font-family: 'M PLUS 1', sans-serif;
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .section {
-      scroll-margin-top: 120px;
-      padding: 1.5rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .card {
-      background-color: #fff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    }
-    .section h2 {
-      font-family: 'M PLUS 1', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #EC3E43;
-    }
-    .section-content {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      gap: 2rem;
-    }
-    .reverse.section-content {
-      grid-template-columns: 1fr auto;
-    }
-    .section-content img {
-      max-height: 120px;
-      width: auto;
-      border-radius: 0;
-      box-shadow: none;
-      background: transparent;
-    }
-    .text-block .full-text {
-      display: none;
-    }
-    .text-block button, .service-card button, .card button {
-      margin-top: 1rem;
-      padding: 0.4rem 1rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background-color: #ec3e43;
-      color: white;
-    }
-    .text-block button:hover, .service-card button:hover, .card button:hover {
-      background-color: #c43238;
-    }
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .service-card {
-      border: 1px solid #eee;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      text-align: center;
-      background-color: #fff;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    }
-    .service-card img {
+
+    .section-content img.image-card {
       width: 100%;
-      max-width: 150px;
-      margin: 1rem auto;
-      border-radius: 0;
-      box-shadow: none;
-      background: transparent;
+      height: 240px;
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
+      aspect-ratio: auto; /* Esto evita el recorte cuadrado */
     }
-    .footer {
-      background-color: #000;
-      color: white;
-      text-align: center;
-      padding: 2rem;
+
+    .section-content > div {
+      padding: 1rem 1.5rem;
+      text-align: left;
     }
+
     .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background-color: #000;
-      display: block;
-      border-radius: 2px;
-    }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #fff;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      z-index: 999;
-    }
-    .mobile-menu a {
-      padding: 0.8rem 0;
-      font-weight: 600;
-      text-decoration: none;
-      color: #000;
-    }
-    .mobile-menu a:hover {
-      color: #EC3E43;
-    }
-    .mobile-menu.show {
       display: flex;
     }
-    @media (max-width: 768px) {
-      .section-content,
-      .reverse.section-content {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-      }
-      .section-content img {
-        max-width: 240px;
-        max-height: 140px;
-      }
-      .hamburger {
-        display: flex;
-      }
-      nav.desktop-menu {
-        display: none !important;
-      }
+
+    nav.desktop-menu {
+      display: none !important;
     }
-    @media (min-width: 769px) {
-      .mobile-menu {
-        display: none !important;
-      }
+
+    #services .section-content,
+    #services .section-content.reverse {
+      flex-direction: column;
     }
-    @media (min-width: 1024px) {
-      .service-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
+
+    #services .section-content img.image-card {
+      max-width: 100%;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 16px 16px 0 0;
     }
+
+    #services .section-content.reverse img.image-card {
+      border-radius: 16px 16px 0 0;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-menu {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .service-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    display: block;
+    border-radius: 2px;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .mobile-menu a {
+    padding: 0.8rem 0;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000;
+  }
+
+  .mobile-menu a:hover {
+    color: #EC3E43;
+  }
+
+  .mobile-menu.show {
+    display: flex;
+  }
   </style>
 </head>
 <body>
@@ -271,19 +469,22 @@
 
   <section id="mission" class="section">
     <div class="card">
-      <h2>Our Mission</h2>
       <div class="section-content">
-        <img src="img-mission-statement.png" alt="Mission Statement">
-        <p>To help investors better manage the risks of investing using forensic due diligence processes and predictive operational intelligence. To rescue investments gone bad and maximize returns, or at least minimize the downside impact of an unrescuable investment.</p>
+        <img src="img-mission-statement.jpg" alt="Mission Statement" class="image-card">
+        <div>
+          <h2>Our Mission</h2>
+          <p>To help investors better manage the risks of investing using forensic due diligence processes and predictive operational intelligence. To rescue investments gone bad and maximize returns, or at least minimize the downside impact of an unrescuable investment.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="card">
-      <h2>Founder’s Statement</h2>
       <div class="section-content reverse">
+        <img src="img-founder.jpg" alt="Founder’s Statement" class="image-card">
         <div class="text-block">
+          <h2>Founder’s Statement</h2>
           <p class="short-text">For over twenty years, we’ve been called in to clean up messes and unravel why promising companies go south post-acquisition. The truth is: many of these disasters are preventable. PE firms often overlook the operational impacts of their acquisitions. Don’t be reactive. Be smart. Call us before you buy. And when things go wrong—really wrong—we’re here to help you fix it.</p>
           <p class="full-text">Many investors acquire good companies, only to find out in a year or so later that everything has gone off the rails since the acquisition. In almost all cases, this is preventable either through better post-acquisition execution planning, or for not acquiring the company to begin with. 
 
@@ -292,10 +493,11 @@ For both Individual Investors and Private Equity Companies, our unique due dilig
 Our pre-acquisition operational due diligence focuses on how production, services, and money flow through the business, and we closely study the operational machinery of the company. By doing this, we can actually predict the viability of the company post-acquisition by developing the metrics and controls needed to visualize operations upon changeover. Upon completion of the analysis, a viability score is assigned from 0-10, which gives decision makers the critical information needed in order to make a good ‘buy vs don’t buy’ decision. A comprehensive report is also provided that highlights the pros and cons of the potential acquisition, including detailed information about where the pitfalls and risks will be in order to manage around them. 
 
 If the final decision is to acquire the company, execution during the first few months after an acquisition is critical, so we develop a 120 day launch and execution plan for the business in addition to a first-year budget and beyond, including a realistic forecast of the cash that may be needed for the company to ultimately reach its goals.</p>
-          <button class="read-more">Read more</button>
+          <div class="button-row">
+            <button class="read-more">Read more</button>
+          </div>
           <button class="back" style="display:none;">Back</button>
         </div>
-        <img src="img-founder.png" alt="Founder’s Statement">
       </div>
     </div>
   </section>
@@ -305,70 +507,100 @@ If the final decision is to acquire the company, execution during the first few 
       <h2>Our Services</h2>
       <div class="service-grid">
         <div class="service-card">
+          <img src="img-pre-acquisition-service.jpg" alt="Pre-acquisition Due Diligence" class="image-card">
           <h3>Pre-acquisition Due Diligence</h3>
-          <img src="img-pre-acquisition-service.png" alt="Pre-acquisition Due Diligence">
           <p>We help investors predict how business operations will shift post-acquisition, giving you tools, metrics, and a viability score from 0–10 so you know whether to buy or walk away.</p>
           <button onclick="showServiceDetail('pre')">Read more</button>
         </div>
         <div class="service-card">
+          <img src="img-c-level-consulting-service.jpg" alt="C-Level Consulting" class="image-card">
           <h3>C-Level Coaching</h3>
-          <img src="img-c-level-consulting-service.png" alt="C-Level Consulting">
           <p>We equip overwhelmed founders and executives with leadership systems to scale effectively and sustainably.</p>
           <button onclick="showServiceDetail('coaching')">Read more</button>
         </div>
         <div class="service-card">
+          <img src="img-corporate-rescue-service.jpg" alt="Corporate Rescue" class="image-card">
           <h3>Corporate Rescue</h3>
-          <img src="img-corporate-rescue-service.png" alt="Corporate Rescue">
           <p>When a company is burning cash, we offer fast turnarounds, assign a rescueability score and build tactical recovery plans.</p>
           <button onclick="showServiceDetail('rescue')">Read more</button>
         </div>
         <div class="service-card">
+          <img src="img-leadership.jpg" alt="Executive Leadership" class="image-card">
           <h3>Executive Leadership</h3>
-          <img src="img-leadership.png" alt="Executive Leadership">
           <p>If current leadership can’t steer the ship, we step in with proven CEOs, Presidents, COOs or CFOs ready to lead transformation.</p>
           <button onclick="showServiceDetail('leadership')">Read more</button>
         </div>
       </div>
     </div>
+
     <div class="card" id="pre-detail" style="display:none;">
-      <h2>Pre-acquisition Due Diligence</h2>
-      <p>Many investors acquire good companies, only to find out in a year or so later that everything has gone off the rails since the acquisition. In almost all cases, this is preventable either through better post-acquisition execution planning, or for not acquiring the company to begin with.
-      
-      For both Individual Investors and Private Equity Companies, our unique due diligence process focuses on how an operation will change after the acquisition. The post-acquisition company performance can be predicted and managed with the right set of tools and metrics before you even invest.
-      
-      Our pre-acquisition operational due diligence focuses on how production, services, and money flow through the business, and we closely study the operational machinery of the company. By doing this, we can actually predict the viability of the company post-acquisition by developing the metrics and controls needed to visualize operations upon changeover. Upon completion of the analysis, a viability score is assigned from 0-10, which gives decision makers the critical information needed in order to make a good ‘buy vs don’t buy’ decision. A comprehensive report is also provided that highlights the pros and cons of the potential acquisition, including detailed information about where the pitfalls and risks will be in order to manage around them.
-      
-      If the final decision is to acquire the company, execution during the first few months after an acquisition is critical, so we develop a 120 day launch and execution plan for the business in addition to a first-year budget and beyond, including a realistic forecast of the cash that may be needed for the company to ultimately reach its goals.</p>
-      <button onclick="backToOverview()">Back</button>
-    </div>
-    <div class="card" id="coaching-detail" style="display:none;">
-      <h2>C-Level Coaching</h2>
-      <p>Oftentimes, a brilliant start up entrepreneur finds him or herself in over their head once the company grows to a certain level. The complexities of running a business increase as the company achieves its goals and experiences growth. Early on, the business leader runs and controls every aspect of the operation. As it grows, he or she has to start relying on lieutenants and delegating areas of the operation. Many startup leaders are not willing, or don’t know how to run a company that they don’t 100% control. Soon the leader is overwhelmed and things start breaking. Alternatively, they delegate operations and decisions without the proper systems and oversight tools in place, so it becomes impossible for the teams to stay in sync. We have coached countless executives and helped them develop the tools and skills necessary to run the business successfully, no matter what the stage of the business.</p>
-      <button onclick="backToOverview()">Back</button>
-    </div>
-    <div class="card" id="rescue-detail" style="display:none;">
-      <h2>Corporate Rescue</h2>
-      <p>Many investors wait too long to call in rescue services. When a company is burning cash, especially if it wasn’t the plan, or if the cash isn’t priming growth, a disaster is on the horizon. Companies must meet their cash goals and targets above all else in order to be successful, both short term and long term. Pouring money into an underperforming company without a highly accountable and tactical plan is reckless, and never works.
-
-      One of the most difficult questions facing investors in this situation is “is it wise to keep pouring money into this loser?” Using unique tools and proven assessment processes, combined with decades of operational experience, we quickly assess the realistic viability of the business and render a rescueability score of 0-10, usually within one to two weeks. As part of that exercise, a detailed rescue plan is developed including a budget, ROI, and exit strategy. Of greatest importance is a realistic assessment of how much more cash will be needed to turn the company around, and how quickly the company can stop burning cash. If the score is too low, then we evaluate various exit strategies, including bankruptcy, selling off assets, dissolution, and a variety of other creative exits meant to minimize downside exposure as much as possible.</p>
-      <button onclick="backToOverview()">Back</button>
-    </div>
-    <div class="card" id="leadership-detail" style="display:none;">
-      <h2>Executive Leadership</h2>
-      <p>In order to turn a company around, its leaders must be willing and capable of making radical changes in many areas of the company and lead the troops in executing a new plan. Oftentimes, certain top leaders of the company are either not willing or not capable of making the radical changes necessary to right the ship. When that happens, they must be replaced by someone with the skills, experience, and vision to lead a company back to health. We can provide a battle-proven CEO, President, COO, or CFO to lead your company back to health.</p>
-      <button onclick="backToOverview()">Back</button>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="card">
-      <h2>Contact</h2>
       <div class="section-content reverse">
-        <p>Connect with us on <a href="https://www.linkedin.com/in/darthurventures" target="_blank">LinkedIn</a> to explore how we can support your next investment or portfolio company.</p>
-        <img src="img-contact.png" alt="Contact">
+        <!-- <img src="img-pre-acquisition-service.jpg" alt="Pre-acquisition Due Diligence" class="image-card"> -->
+        <div class="text-block">
+          <h2>Pre-acquisition Due Diligence</h2>
+          <p>Many investors acquire good companies, only to find out in a year or so later that everything has gone off the rails since the acquisition. In almost all cases, this is preventable either through better post-acquisition execution planning, or for not acquiring the company to begin with.
+              
+              For both Individual Investors and Private Equity Companies, our unique due diligence process focuses on how an operation will change after the acquisition. The post-acquisition company performance can be predicted and managed with the right set of tools and metrics before you even invest.
+              
+              Our pre-acquisition operational due diligence focuses on how production, services, and money flow through the business, and we closely study the operational machinery of the company. By doing this, we can actually predict the viability of the company post-acquisition by developing the metrics and controls needed to visualize operations upon changeover. Upon completion of the analysis, a viability score is assigned from 0-10, which gives decision makers the critical information needed in order to make a good ‘buy vs don’t buy’ decision. A comprehensive report is also provided that highlights the pros and cons of the potential acquisition, including detailed information about where the pitfalls and risks will be in order to manage around them.
+              
+              If the final decision is to acquire the company, execution during the first few months after an acquisition is critical, so we develop a 120 day launch and execution plan for the business in addition to a first-year budget and beyond, including a realistic forecast of the cash that may be needed for the company to ultimately reach its goals.</p>
+          <button class="back" onclick="backToOverview()">Back</button>
+        </div>
+       
+      </div>
+    </div>
+
+    <div class="card" id="coaching-detail" style="display:none;">
+      <div class="section-content reverse">
+        <!-- <img src="img-c-level-consulting-service.jpg" alt="C-Level Coaching" class="image-card"> -->
+        <div class="text-block">
+          <h2>C-Level Coaching</h2>
+          <p>Oftentimes, a brilliant start up entrepreneur finds him or herself in over their head once the company grows to a certain level. The complexities of running a business increase as the company achieves its goals and experiences growth. Early on, the business leader runs and controls every aspect of the operation. As it grows, he or she has to start relying on lieutenants and delegating areas of the operation. Many startup leaders are not willing, or don’t know how to run a company that they don’t 100% control. Soon the leader is overwhelmed and things start breaking. Alternatively, they delegate operations and decisions without the proper systems and oversight tools in place, so it becomes impossible for the teams to stay in sync. We have coached countless executives and helped them develop the tools and skills necessary to run the business successfully, no matter what the stage of the business.</p>
+          <button class="back" onclick="backToOverview()">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="rescue-detail" style="display:none;">
+      <div class="section-content reverse">
+        <!-- <img src="img-corporate-rescue-service.jpg" alt="Corporate Rescue" class="image-card"> -->
+        <div class="text-block">
+          <h2>Corporate Rescue</h2>
+          <p>Many investors wait too long to call in rescue services. When a company is burning cash, especially if it wasn’t the plan, or if the cash isn’t priming growth, a disaster is on the horizon. Companies must meet their cash goals and targets above all else in order to be successful, both short term and long term. Pouring money into an underperforming company without a highly accountable and tactical plan is reckless, and never works.
+
+              One of the most difficult questions facing investors in this situation is “is it wise to keep pouring money into this loser?” Using unique tools and proven assessment processes, combined with decades of operational experience, we quickly assess the realistic viability of the business and render a rescueability score of 0-10, usually within one to two weeks. As part of that exercise, a detailed rescue plan is developed including a budget, ROI, and exit strategy. Of greatest importance is a realistic assessment of how much more cash will be needed to turn the company around, and how quickly the company can stop burning cash. If the score is too low, then we evaluate various exit strategies, including bankruptcy, selling off assets, dissolution, and a variety of other creative exits meant to minimize downside exposure as much as possible.</p>
+          <button class="back" onclick="backToOverview()">Back</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="leadership-detail" style="display:none;">
+      <div class="section-content reverse">
+        <!-- <img src="img-leadership.jpg" alt="Executive Leadership" class="image-card"> -->
+        <div class="text-block">
+          <h2>Executive Leadership</h2>
+          <p>In order to turn a company around, its leaders must be willing and capable of making radical changes in many areas of the company and lead the troops in executing a new plan. Oftentimes, certain top leaders of the company are either not willing or not capable of making the radical changes necessary to right the ship. When that happens, they must be replaced by someone with the skills, experience, and vision to lead a company back to health. We can provide a battle-proven CEO, President, COO, or CFO to lead your company back to health.</p>
+          <button class="back" onclick="backToOverview()">Back</button>
+        </div>
       </div>
     </div>
   </section>
+
+   <section id="contact" class="section">
+      <div class="card">
+        <div class="section-content">
+          <img src="img-contact.jpg" alt="Contact" class="image-card">
+          <div class="text-block">
+            <h2>Contact</h2>
+            <p>
+              Connect with us on <a href="https://www.linkedin.com/in/darthurventures" target="_blank">LinkedIn</a>
+              to explore how we can support your next investment or portfolio company.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
   <footer class="footer">
     <p>&copy; 2025 D-Arthur Ventures. All rights reserved.</p>
@@ -424,6 +656,7 @@ If the final decision is to acquire the company, execution during the first few 
       document.getElementById('pre-detail').style.display = 'none';
       document.getElementById('coaching-detail').style.display = 'none';
       document.getElementById('rescue-detail').style.display = 'none';
+      document.getElementById('leadership-detail').style.display = 'none';
     }
 
     function scrollToTopAndResetHeader() {
